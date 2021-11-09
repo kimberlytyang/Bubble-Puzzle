@@ -10,7 +10,6 @@ using namespace std;
 clock_t startTime;
 clock_t endTime;
 long long currNodes = 0;
-long long totalNodes = 0;
 bool solutionFound = false;
 
 // Used for testing pieces
@@ -50,11 +49,10 @@ void solve(int x, int y, vector<Piece*>& unused, int numRemaining, Board* board)
     if (numRemaining == 0) {
         endTime = clock();
         double runtime = (double) (endTime - startTime) / CLOCKS_PER_SEC * 1000.0;
-        totalNodes = currNodes;
 
         board->print();
         cout << "Runtime: " << runtime << " ms" << endl;
-        cout << "Nodes: " << totalNodes << endl;
+        cout << "Nodes: " << currNodes << endl;
         solutionFound = true;
 
         return;
